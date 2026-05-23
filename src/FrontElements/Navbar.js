@@ -21,10 +21,10 @@ const Navbar = () => {
         </div>
   
         <div class="nav-links">
-          <a href="#"><Link to={"/"}>Home</Link></a>
-          <a href="#"><Link to={"/how-it-works"}>How It Works</Link></a>
-          <a href="#"><Link to={"/success-stories"}>Success Stories</Link></a>
-          <a href="#"><Link to={"/pricing"}>Pricing</Link></a>
+          <a><Link to={"/"}>Home</Link></a>
+          <a><Link to={"/how-it-works"}>How It Works</Link></a>
+          <a><Link to={"/success-stories"}>Success Stories</Link></a>
+          <a><Link to={"/pricing"}>Pricing</Link></a>
           <Link className="getIncRep"  to={"/sign-up"}><button class="nav-cta-button">Get My Income Report</button></Link>
         </div>
       </div>
