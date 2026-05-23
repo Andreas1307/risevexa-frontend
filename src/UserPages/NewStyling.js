@@ -2,10 +2,10 @@ import React, {useState, useEffect } from "react";
 import "../UserStyling/dashboard.css"
 import { FaTimes } from "react-icons/fa";
 import axios from "axios";
-import directory from "../directory";
+import directory from "../directory.js";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import ReportView from "../UserComponents/ReportView";
+import ReportView from "../UserComponents/ReportView.js";
 
 
 

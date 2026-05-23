@@ -1,26 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Homepage from './FrontPages/homepage';
-import reportWebVitals from './reportWebVitals';
+import Homepage from './FrontPages/homepage.js';
+import reportWebVitals from './reportWebVitals.js';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import HowItWorks from './FrontPages/HowItWorks';
-import SuccessStories from './FrontPages/SuccessStories';
-import Pricing from './FrontElements/Pricing';
-import PricingPage from './FrontPages/PricingPage';
-import LogIn from './FrontPages/LogIn';
-import SignUp from './FrontPages/SignUp';
-import Dashboard from './UserPages/Dashboard';
-import NewAnalysis from './UserPages/NewStyling';
-import Reports from './UserPages/Reports';
-import HelpSupport from './UserPages/HelpSupport';
-import PrivacyPolicy from './FrontPages/PrivacyPolicy';
-import TermsOfService from './FrontPages/TermsOfService';
+import HowItWorks from './FrontPages/HowItWorks.js';
+import SuccessStories from './FrontPages/SuccessStories.js';
+import PricingPage from './FrontPages/PricingPage.js';
+import LogIn from './FrontPages/LogIn.js';
+import SignUp from './FrontPages/SignUp.js';
+import Dashboard from './UserPages/Dashboard.js';
+import NewAnalysis from './UserPages/NewStyling.js';
+import Reports from './UserPages/Reports.js';
+import HelpSupport from './UserPages/HelpSupport.js';
+import PrivacyPolicy from './FrontPages/PrivacyPolicy.js';
+import TermsOfService from './FrontPages/TermsOfService.js';
 
 
 
 
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import RefundPolicy from './FrontPages/RefundPolicy';
+import RefundPolicy from './FrontPages/RefundPolicy.js';
 
 const router = createBrowserRouter([
   {

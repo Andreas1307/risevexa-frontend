@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from "react";
 import "../UserStyling/dashboard.css"
 import axios from "axios";
-import directory from "../directory";
+import directory from "../directory.js";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 

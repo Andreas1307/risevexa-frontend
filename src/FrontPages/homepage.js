@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../FrontStyling/style.css"
-import Navbar from "../FrontElements/Navbar";
-import Footer from "../FrontElements/Footer";
+import Navbar from "../FrontElements/Navbar.js";
+import Footer from "../FrontElements/Footer.js";
 import Bar from "../FrontElements/Bar.js"
 import Pricing from "../FrontElements/Pricing.js";
 import axios from "axios";

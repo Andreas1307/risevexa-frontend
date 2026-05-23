@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../FrontStyling/logSign.css"
-import Bar from "../FrontElements/Bar";
-import Navbar from "../FrontElements/Navbar";
-import Footer from "../FrontElements/Footer";
+import Bar from "../FrontElements/Bar.js";
+import Navbar from "../FrontElements/Navbar.js";
+import Footer from "../FrontElements/Footer.js";
 import axios from "axios";
 import directory from "../directory";
 import { Link, useNavigate } from "react-router-dom"

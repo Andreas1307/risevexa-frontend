@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import "../UserStyling/dashboard.css";
 import axios from "axios";
-import directory from "../directory"
+import directory from "../directory.js"
 
 
 import {

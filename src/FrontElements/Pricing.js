@@ -1,5 +1,5 @@
 import React from "react";
-import "../FrontElements/Pricing.js"
+import "../FrontStyling/style.css"
 import { Link } from "react-router-dom";
 
 

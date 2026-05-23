@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "../UserStyling/dashboard.css";
 import axios from "axios";
-import directory from "../directory";
+import directory from "../directory.js";
 import { useNavigate } from "react-router-dom";
 import TimeAgo from "react-timeago";
 import jsPDF from "jspdf";
 import { useRef } from "react";
-import ReportView from "../UserComponents/ReportView";
+import ReportView from "../UserComponents/ReportView.js";
 
 
 

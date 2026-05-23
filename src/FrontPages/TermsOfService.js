@@ -1,8 +1,8 @@
 import React from "react";
 import "../FrontStyling/style.css"
-import Bar from "../FrontElements/Bar";
-import Navbar from "../FrontElements/Navbar";
-import Footer from "../FrontElements/Footer";
+import Bar from "../FrontElements/Bar.js";
+import Navbar from "../FrontElements/Navbar.js";
+import Footer from "../FrontElements/Footer.js";
 
 
 export default function TermsOfService() {
