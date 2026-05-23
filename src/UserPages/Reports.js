@@ -4,7 +4,6 @@ import axios from "axios";
 import directory from "../directory";
 import { useNavigate } from "react-router-dom";
 import TimeAgo from "react-timeago";
-import { FaTimes } from "react-icons/fa";
 import jsPDF from "jspdf";
 import { useRef } from "react";
 import ReportView from "../UserComponents/ReportView";

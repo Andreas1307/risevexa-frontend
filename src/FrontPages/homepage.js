@@ -6,7 +6,7 @@ import Bar from "../FrontElements/Bar.js"
 import Pricing from "../FrontElements/Pricing.js";
 import axios from "axios";
 import directory from "../directory.js";
-import { Link, Outlet, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const Homepage = () => { 

@@ -10,6 +10,7 @@ import { GoogleLogin } from '@react-oauth/google';
 import { ToastContainer, toast } from "react-toastify";
 
 
+
 const LogIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
@@ -113,6 +114,10 @@ const LogIn = () => {
 
           <button type="submit" onClick={() => signIn()}>Sign In</button>
         </form>
+
+        <div class="login-meta two">
+          <span>Don't have an account? Create one <Link to={"/sign-up"}>here</Link></span>
+        </div>
 
         <div class="login-meta">
           <span>Forgot password?</span>

@@ -112,10 +112,21 @@
     opacity: 0.6;
     margin-bottom: 16px;
   }
-
+  .login-card .login-meta.two {
+    margin-bottom: -8px !important;
+    margin-top: 12px !important;
+  }
+  .login-meta.three {
+  
+    margin-bottom: -5px !important;
+    margin-top: 14px !important;
+  }
   .login-meta span {
     cursor: pointer;
     transition: .3s ease;
+  }
+  .login-meta span a {
+    text-decoration: underline;
   }
 
   .login-meta span:hover {

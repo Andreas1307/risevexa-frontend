@@ -2,7 +2,7 @@ import React from "react";
 import "../UserStyling/dashboard.css"
 import { useRef } from "react";
 import { FaTimes } from "react-icons/fa";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const ReportView = ({ result, setResult }) => {

@@ -5,7 +5,7 @@ import Footer from "../FrontElements/Footer";
 import Bar from "../FrontElements/Bar";
 import axios from "axios";
 import directory from "../directory.js";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 

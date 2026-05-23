@@ -1,9 +1,8 @@
 import React, {useState, useEffect } from "react";
 import "../UserStyling/dashboard.css"
-import { FaTimes } from "react-icons/fa";
 import axios from "axios";
 import directory from "../directory";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 

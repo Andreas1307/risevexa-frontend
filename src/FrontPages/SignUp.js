@@ -5,7 +5,7 @@ import Navbar from "../FrontElements/Navbar";
 import Footer from "../FrontElements/Footer";
 import axios from "axios";
 import directory from "../directory";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from '@react-oauth/google';
 
 import { ToastContainer, toast } from "react-toastify";
@@ -125,8 +125,13 @@ const SignUp = () => {
 
         <button onClick={() => Register()}>Create My Income Plan</button>
 
-        <p>One-time access • Instant analysis</p>
+       
 
+
+        <div class="login-meta three">
+          <span>Already have an account? Log in <Link to={"/log-in"}>here</Link></span>
+        </div>
+ <p>One-time access • Instant analysis</p>
 
 
         <GoogleLogin
