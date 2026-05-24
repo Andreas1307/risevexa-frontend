@@ -1,3 +1,3 @@
-const directory = "http://localhost:5000"
+const directory = "https://api.risevexa.com"
 
 export default directory
