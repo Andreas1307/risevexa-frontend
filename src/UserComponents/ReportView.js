@@ -479,10 +479,10 @@ const ReportView = ({ result, setResult }) => {
           {result?.ai_report?.final_summary?.income_projection}
           </h1>
         
-          <button className="cta">
-            Start My Income Upgrade
-          </button>
-        
+      
+          <p className="disclaimer">
+  AI-generated insights. Results may vary and should be used for informational purposes only.
+</p>
         </section>
         
         

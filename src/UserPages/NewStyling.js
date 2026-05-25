@@ -32,13 +32,38 @@ const NewAnalysis = () => {
   const [searchParams] = useSearchParams();
 
 
+
+
+
   useEffect(() => {
     const reportId = searchParams.get("reportId");
   
-    if (reportId) {
-      verifyPayment(reportId);
-    }
+    if (!reportId) return;
+  
+    let attempts = 0;
+  
+    const interval = setInterval(async () => {
+      attempts++;
+  
+      const success = await verifyPayment(reportId);
+  
+      if (success) {
+        clearInterval(interval);
+      }
+  
+      if (attempts >= 10) {
+        clearInterval(interval);
+        toast.error("Payment verification timed out");
+      }
+  
+    }, 3000);
+  
+    return () => clearInterval(interval);
+  
   }, []);
+
+
+
 
   const verifyPayment = async (reportId) => {
 
@@ -52,14 +77,14 @@ const NewAnalysis = () => {
         }
       );
   
-      if (res.data.paid) {
-  
-        getFullReport(reportId);
-  
-      } else {
-  
-        toast.error("Payment still processing");
-      }
+     if (res.data.paid) {
+
+  await getFullReport(reportId);
+
+  return true;
+}
+
+return false;
   
     } catch (err) {
   
