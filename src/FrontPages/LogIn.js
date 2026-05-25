@@ -8,14 +8,14 @@ import directory from "../directory";
 import { Link, useNavigate } from "react-router-dom"
 import { GoogleLogin } from '@react-oauth/google';
 import { ToastContainer, toast } from "react-toastify";
-
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 const LogIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
-
+    const [showPassword, setShowPassword] = useState(false);
     const [user, setUser] = useState(null)
 
     useEffect(() => {
@@ -106,11 +106,22 @@ const LogIn = () => {
            onChange={(e) => setEmail(e.target.value)}
            value={email}
            />
-          <input type="password"
+
+
+          <div className="password-field">
+          <input 
+        type={showPassword ? "text" : "password"}
            placeholder="Password"
            onChange={(e) => setPassword(e.target.value)}
            value={password}
            />
+             { showPassword ? <FaEye className="eye two" onClick={() => setShowPassword(!showPassword)} style={{ color: "gray" }}/> :
+         <FaEyeSlash className="eye two" onClick={() => setShowPassword(!showPassword)}/> }
+         </div>
+
+
+
+
 
           <button type="submit" onClick={() => signIn()}>Sign In</button>
         </form>

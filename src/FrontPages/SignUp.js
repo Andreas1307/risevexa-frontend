@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from '@react-oauth/google';
 
 import { ToastContainer, toast } from "react-toastify";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const SignUp = () => {
     const [username, setUsername] = useState("")
@@ -16,6 +17,8 @@ const SignUp = () => {
     const [password, setPassword] = useState("")
     const navigate = useNavigate();
     const [user, setUser] = useState(null)
+
+    const [showPassword, setShowPassword] = useState(false);
 
 
     useEffect(() => {
@@ -39,10 +42,6 @@ const SignUp = () => {
     
       authCheck();
     }, []);
-
-
-
-    
 
     const Register = async () => {
         try {
@@ -80,8 +79,6 @@ const SignUp = () => {
   autoClose={3000}
   theme="dark"
 />
-
-
             <Bar />
             <Navbar />
 
@@ -117,11 +114,20 @@ const SignUp = () => {
         onChange={(e) => setEmail(e.target.value)}
         value={email}
         />
-        <input type="password"
+
+
+
+        <div className="password-field">
+        <input 
+        type={showPassword ? "text" : "password"}
          placeholder="Password" 
          onChange={(e) => setPassword(e.target.value)}
          value={password}
          />
+
+        { showPassword ? <FaEye className="eye" onClick={() => setShowPassword(!showPassword)} style={{ color: "gray" }}/> :
+         <FaEyeSlash className="eye" onClick={() => setShowPassword(!showPassword)}/> }
+         </div>
 
         <button onClick={() => Register()}>Create My Income Plan</button>
 
