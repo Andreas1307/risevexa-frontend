@@ -22,10 +22,10 @@ const Footer = () => {
 
 
         <div className="footer-links">
-          <Link to="/privacy">Privacy Policy</Link>
-          <Link to="/terms">Terms of Service</Link>
-          <Link to="/refunds">Refund Policy</Link>
-          <Link to="/contact">Contact</Link>
+          <Link to="/privacy-policy">Privacy Policy</Link>
+          <Link to="/terms-of-service">Terms of Service</Link>
+          <Link to="/refund-policy">Refund Policy</Link>
+          <a href="mailto:risevexa@gmail.com">Contact</a>
         </div>
 
 
