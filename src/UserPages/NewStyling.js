@@ -33,11 +33,12 @@ const NewAnalysis = () => {
 
 
   const trackEvent = (event, data = {}) => {
-    if (window.fbq) {
-      window.fbq('track', event, data);
-    } else {
-      console.log("Pixel not ready:", event);
-    }
+    const wait = setInterval(() => {
+      if (window.fbq) {
+        window.fbq('track', event, data);
+        clearInterval(wait);
+      }
+    }, 200);
   };
 
 
