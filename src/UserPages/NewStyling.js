@@ -32,11 +32,27 @@ const NewAnalysis = () => {
   const [searchParams] = useSearchParams();
 
 
-  useEffect(() => {
+  const trackEvent = (event, data = {}) => {
     if (window.fbq) {
-      window.fbq('track', 'ViewContent');
+      window.fbq('track', event, data);
+    } else {
+      console.log("Pixel not ready:", event);
     }
+  };
+
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (window.fbq) {
+        window.fbq('track', 'ViewContent');
+        clearInterval(interval);
+      }
+    }, 500);
+  
+    return () => clearInterval(interval);
   }, []);
+
+
 
 
   useEffect(() => {
@@ -84,11 +100,11 @@ const NewAnalysis = () => {
      if (res.data.paid) {
 
       if (window.fbq) {
-        window.fbq('track', 'Purchase', {
-          value: 15,
-          currency: 'EUR',
-          content_name: 'RiseVexa Report'
-        });
+        trackEvent('Purchase', {
+  value: 15,
+  currency: 'EUR',
+  content_name: 'RiseVexa Report'
+});
       }
 
   await getFullReport(reportId);
