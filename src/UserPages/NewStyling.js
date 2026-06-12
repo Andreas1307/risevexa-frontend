@@ -32,7 +32,11 @@ const NewAnalysis = () => {
   const [searchParams] = useSearchParams();
 
 
-
+  useEffect(() => {
+    if (window.fbq) {
+      window.fbq('track', 'ViewContent');
+    }
+  }, []);
 
 
   useEffect(() => {
@@ -78,6 +82,14 @@ const NewAnalysis = () => {
       );
   
      if (res.data.paid) {
+
+      if (window.fbq) {
+        window.fbq('track', 'Purchase', {
+          value: 15,
+          currency: 'EUR',
+          content_name: 'RiseVexa Report'
+        });
+      }
 
   await getFullReport(reportId);
 
@@ -216,6 +228,10 @@ const handleCheckout = async () => {
         withCredentials: true
       }
     )
+
+    if (window.fbq) {
+      window.fbq('track', 'InitiateCheckout');
+    }
 
     window.location.href = res.data.url;
 
