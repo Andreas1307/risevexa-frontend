@@ -59,7 +59,7 @@ const Pricing = () => {
       </div>
 
       <div class="price-block">
-        <div class="price">€14.99</div>
+        <div class="price offer"><div className="price-offer">€14.99</div> <span>€0.00</span></div>
       <Link to={"/sign-up"}><button class="pricing-cta">Unlock My Income Upgrade</button></Link>
         <p class="pricing-note">
         One-time payment. Lifetime upside.

@@ -5248,11 +5248,19 @@ body {
       left:140%;
       transition:0.8s ease;
     }
-
-
-
-
-
+    .vx-unlock-btn .vx-pricee.vx-offer {
+      font-size: 16.5px;
+      text-decoration: line-through;
+    }
+    .vx-new-offer {
+      margin-left: 10px;
+    }
+    .vx-unlock-btn .vx-new-offer{
+      display: none;
+    }
+    .vx-unlock-btn.oferrr .vx-new-offer{
+      display: block;
+    }
 
 
 

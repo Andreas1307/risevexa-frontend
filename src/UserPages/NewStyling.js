@@ -399,7 +399,7 @@ useEffect(() => {
         disabled={loading}
         className="vx-generate-btn"
       >
-        {loading ? "Analyzing Market Position..." : "Generate My Income Report"}
+        {loading ? "Analyzing Market Position..." : "Generate My Income Report → €0.00"}
       </button>
 
       <small className="vx-secure-note">
@@ -591,10 +591,10 @@ useEffect(() => {
     </div>
 
     <button
-      className="vx-unlock-btn"
+      className="vx-unlock-btn offerrr"
       onClick={handleCheckout}
     >
-      🔒 Unlock Full Report – €14.99
+      🔒 Unlock Full Report – <span className="vx-pricee vx-offer">€14.99</span> <span className="vx-new-offer">€0.00</span>
     </button>
 
   </div>

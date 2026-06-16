@@ -749,12 +749,26 @@
   }
   
   .price {
+    display: flex;
+    align-items: center;
+    gap: 20px;
     font-size: 80px;
     font-weight: 900;
     background: linear-gradient(180deg,#ffffff,#7c7cff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 50px rgba(124,124,255,0.5);
+  }
+  .price span {
+    display: none;
+  }
+  .price.offer .price-offer {
+    font-size: 38px;
+    text-decoration: line-through;
+  }
+  .price.offer span {
+    display: flex;
+    font-size: 70px;
   }
   
   /* CTA */
