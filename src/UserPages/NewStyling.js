@@ -399,7 +399,7 @@ useEffect(() => {
         disabled={loading}
         className="vx-generate-btn"
       >
-        {loading ? "Analyzing Market Position..." : "Generate My Income Report → €0.00"}
+        {loading ? "Analyzing Market Position..." : "Generate My Income Report for €0.00"}
       </button>
 
       <small className="vx-secure-note">
