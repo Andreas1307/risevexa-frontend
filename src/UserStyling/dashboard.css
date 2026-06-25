@@ -3418,6 +3418,15 @@ body {
   /* =========================================
      YEAR TITLES
      ========================================= */
+
+
+
+
+  .vx-cv-note {
+    font-size: 12px;
+    color: rgb(194, 0, 0);
+    margin-top: -5px;
+  }
   
   .future-grid h3 {
     position: relative;
