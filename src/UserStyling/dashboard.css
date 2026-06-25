@@ -3428,6 +3428,7 @@ body {
     color: rgb(194, 0, 0);
     margin-top: -25px;
     margin-bottom: 20px;
+    position: relative;
   }
   
   .future-grid h3 {
