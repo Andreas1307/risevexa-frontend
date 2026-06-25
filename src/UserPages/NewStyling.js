@@ -390,6 +390,7 @@ useEffect(() => {
       <span className="vx-cv-note">Your CV is analyzed to personalize your report and is not saved in our database.</span>
 
       <textarea
+      className="vx-qualifications-textarea"
         value={qualifications}
         onChange={(e) => setQualifications(e.target.value)}
         placeholder="Qualifications (optional)"
