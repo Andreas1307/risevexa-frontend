@@ -3422,17 +3422,17 @@ body {
 
 
      .vx-analysis-form .vx-cv-textarea {
-      margin-bottom: -3px;
+      margin-bottom: -3.5px;
      }
   .vx-cv-note {
-    font-size: 11.5px;
+    font-size: 11px;
     font-weight: 500;
     color: rgb(194, 0, 0);
     position: relative;
     margin-left: 3.5px;
   }
   .vx-analysis-form .vx-qualifications-textarea {
-    margin-top: 9px;
+    margin-top: 12px;
   }
   
   .future-grid h3 {
