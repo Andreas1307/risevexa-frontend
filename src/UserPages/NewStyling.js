@@ -386,7 +386,7 @@ useEffect(() => {
         onChange={(e) => setCv(e.target.value)}
         placeholder="Paste your CV or describe what you do"
       />
-      <p className="vx-cv-note">CV details are used exclusively to generate your personalized career report and are not retained after analysis.</p>
+      <small className="vx-cv-note">Your CV is analyzed to personalize your report and is not saved in our database.</small>
 
       <textarea
         value={qualifications}
