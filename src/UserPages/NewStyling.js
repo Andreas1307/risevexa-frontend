@@ -382,6 +382,7 @@ useEffect(() => {
       />
 
       <textarea
+      className="vx-cv-textarea"
         value={cv}
         onChange={(e) => setCv(e.target.value)}
         placeholder="Paste your CV or describe what you do"
