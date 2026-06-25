@@ -3423,10 +3423,11 @@ body {
 
 
   .vx-cv-note {
-    font-size: 12px;
+    font-size: 122px;
     font-weight: 500;
     color: rgb(194, 0, 0);
     margin-top: -25px;
+    margin-bottom: 20px;
   }
   
   .future-grid h3 {
