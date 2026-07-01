@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from "react";
+import React, {useState, useEffect, useRef } from "react";
 import "../UserStyling/dashboard.css"
 import { FaTimes } from "react-icons/fa";
 import axios from "axios";
@@ -24,13 +24,12 @@ const NewAnalysis = () => {
   const [unlocked, setUnlocked] = useState(false);
 
   const [step, setStep] = useState("form"); 
- 
+  const [insertedId, setInsertedId] = useState(null);
   const [reportId, setReportId] = useState(null);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const [searchParams] = useSearchParams();
-
 
   const trackEvent = (event, data = {}) => {
     const wait = setInterval(() => {
@@ -53,52 +52,80 @@ const NewAnalysis = () => {
     return () => clearInterval(interval);
   }, []);
 
-
-
+  const hasGeneratedReport = useRef(false);
 
   useEffect(() => {
-    const reportId = searchParams.get("reportId");
+      const newId = searchParams.get("data_id");
+      const sessionId = searchParams.get("session_id");
   
-    if (!reportId) return;
+      if (!sessionId) return;
   
-    let attempts = 0;
+      let attempts = 0;
   
-    const interval = setInterval(async () => {
-      attempts++;
+      const interval = setInterval(async () => {
+          attempts++;
   
-      const success = await verifyPayment(reportId);
+          // If a request is already running or complete, stop immediately
+          if (hasGeneratedReport.current) {
+              clearInterval(interval);
+              return;
+          }
   
-      if (success) {
-        clearInterval(interval);
-      }
+          const success = await verifyPayment(sessionId, newId);
   
-      if (attempts >= 10) {
-        clearInterval(interval);
-        toast.error("Payment verification timed out");
-      }
+          if (success) {
+              clearInterval(interval);
+          }
   
-    }, 3000);
+          if (attempts >= 10) {
+              clearInterval(interval);
+              toast.error("Payment verification timed out");
+          }
+      }, 3000);
   
-    return () => clearInterval(interval);
-  
+      return () => clearInterval(interval);
   }, []);
 
+  const handleCheckout = async () => {
+    try {
+      const res = await axios.post(
+        `${directory}/create-checkout-session`, { insertedId },
+        {
+          withCredentials: true
+        }
+      )
+  
+      if (window.fbq) {
+        window.fbq('track', 'InitiateCheckout');
+      }
+  
+      window.location.href = res.data.url;
+  
+    } catch (err) {
+      console.log("Stripe error:", err);
+      toast.error("An error occured");
+    }
+  };
+  
 
-
-
-  const verifyPayment = async (reportId) => {
+  const verifyPayment = async (sessionId, newId) => {
 
     try {
   
       const res = await axios.get(
         `${directory}/verify-payment`,
         {
-          params: { reportId },
+          params: { sessionId },
           withCredentials: true
         }
       );
   
      if (res.data.paid) {
+
+      if (hasGeneratedReport.current) return true;
+      
+      // 2. Lock it down instantly before hitting the await barrier
+      hasGeneratedReport.current = true;
 
       if (window.fbq) {
         trackEvent('Purchase', {
@@ -107,8 +134,7 @@ const NewAnalysis = () => {
   content_name: 'RiseVexa Report'
 });
       }
-
-  await getFullReport(reportId);
+  await generateFullReport(newId);
 
   return true;
 }
@@ -124,14 +150,37 @@ return false;
   };
 
 
+
+  const generateFullReport = async (newId) => {
+
+    if (loading) return;
+  
+    try {
+      setLoading(true);
+      setStep("loading");
+  
+      const res = await axios.post(`${directory}/send-user-data`, {
+        newId
+      }, { withCredentials: true });
+      console.log("Response from send-user-data:", res.data);
+      setResult(res.data.report)
+      setStep("form");
+    } catch(e) {
+      console.log("Error:", e);
+      setError(e.response?.data?.error || e.message);
+      toast.error("An error occured");
+  }
+}
+
+  
   
 
-
+/*
   const getFullReport = async (id) => {
     try {
       const loggedUser = await AuthCheck(); // ✅ WAIT
 
-      
+      console.log("Inside GETFULLREPORT", id)
       const res = await axios.get(
         `${directory}/get-report`,
        {
@@ -152,6 +201,7 @@ return false;
       toast.error("An error occured");
     }
   };
+  */
 
 const AuthCheck = async () => {
   try{
@@ -210,7 +260,7 @@ const sendUserData = async () => {
     setLoading(true);
     setStep("loading");
 
-    const res = await axios.post(`${directory}/send-user-data`, {
+    const res = await axios.post(`${directory}/generate-preview`, {
       currentJob,
       yearsExperience,
       currentSalary,
@@ -219,9 +269,10 @@ const sendUserData = async () => {
       qualifications
     }, { withCredentials: true });
 
-    setResult2(res.data.preview);
-    setReportId(res.data.reportId);
-
+   setResult2(res.data.preview);
+   setInsertedId(res.data.insertedId);
+  //  setReportId(res.data.reportId);
+console.log("Response from generate-preview:", res.data);
     setStep("preview");
   } catch(e) {
     console.log("Error:", e);
@@ -234,29 +285,6 @@ const sendUserData = async () => {
   }
 }
 
-const handleCheckout = async () => {
-  try {
-    const res = await axios.post(
-      `${directory}/create-checkout-session`,
-      {
-        reportId: reportId
-      },
-      {
-        withCredentials: true
-      }
-    )
-
-    if (window.fbq) {
-      window.fbq('track', 'InitiateCheckout');
-    }
-
-    window.location.href = res.data.url;
-
-  } catch (err) {
-    console.log("Stripe error:", err);
-    toast.error("An error occured");
-  }
-};
 
 const loadingSteps = [
   "Analyzing salary positioning...",
@@ -558,7 +586,7 @@ useEffect(() => {
       {/* SHOW THIS */}
       <div className="vx-preview-box">
         <h3>Income Gap</h3>
-        <p>{result2.income_analysis.income_gap}</p>
+       <p>{result2.income_analysis.income_gap}</p>
       </div>
 
       {/* LOCK THIS */}
@@ -570,7 +598,7 @@ useEffect(() => {
       {/* SHOW THIS */}
       <div className="vx-preview-box">
         <h3>Best Next Role</h3>
-        <p>{result2.best_next_role.target_role}</p>
+     <p>{result2.best_next_role.target_role}</p>
       </div>
 
       {/* LOCK THIS */}
@@ -588,7 +616,7 @@ useEffect(() => {
       {/* SHOW THIS */}
       <div className="vx-preview-box">
         <h3>Optimized Path</h3>
-        <p>{result2.final_summary.optimized_path}</p>
+       <p>{result2.final_summary.optimized_path}</p>
       </div>
 
     </div>

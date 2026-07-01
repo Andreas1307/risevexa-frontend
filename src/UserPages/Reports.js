@@ -18,6 +18,7 @@ const Reports = () => {
   const [result, setResult] = useState(null);
   const navigate = useNavigate();
   const reportRef = useRef(null);
+  const [report, setReport] = useState(null);
 
 
   const AuthCheck = async () => {
@@ -70,6 +71,17 @@ const Reports = () => {
 
 }, [user]);
 
+
+const getReport = async (reportId) => {
+  try {
+    const data = await axios.get(`${directory}/get-report-data`, {
+      params: { reportId },
+      withCredentials: true
+    })
+    setReport(data.data.report)
+  } catch(e) {
+    console.log("An error occured while trying to get the report", e)}
+}
 
 
 
@@ -1375,7 +1387,7 @@ return (
           </span>
   
           <h2>
-          {latestRep?.current_job} → {latestRep?.target_role}
+          {latestRep?.current_job} → {latestRep?.desired_role}
           </h2>
   
         </div>
@@ -1396,8 +1408,9 @@ return (
         <div className="vx-report-box1">
           <span>Projected Salary</span>
           <h3>{
-          latestRep?.ai_report?.best_next_role
-          ?.salary_range
+          latestRep?.projected_salary
+
+
         }</h3>
         </div>
   
@@ -1405,9 +1418,7 @@ return (
           <span>Transition Timeline</span>
           <h3>
   {
-    latestRep?.ai_report?.["90_day_transition_plan"]
-      ? "3-6 Months"
-      : "Unknown"
+    "3-6 Months"
   }
 </h3>
         </div>
@@ -1416,12 +1427,7 @@ return (
       <span>Underpaid Status</span>
 
       <h3>
-        {
-          latestRep?.ai_report?.income_analysis
-          ?.is_underpaid
-          ? "YES"
-          : "NO"
-        }
+        Yes
       </h3>
     </div>
   
@@ -1453,13 +1459,10 @@ return (
   
       <div className="vx-actions1">
   
-        <button onClick={() => setResult(latestRep)} className="vx-primary1">
+        <button onClick={() => getReport(latestRep.id)} className="vx-primary1">
           View Full Report
         </button>
   
-        <button className="vx-secondary1">
-          Regenerate Strategy
-        </button>
   
       </div>
 
@@ -1473,9 +1476,9 @@ return (
   
   
 
-    {result && (
+    {report && (
 
-<ReportView result={result} setResult={setResult} />
+<ReportView result={report} setResult={setReport} />
 
  
 )}
@@ -1503,7 +1506,7 @@ return (
           <div>
   
             <strong>
-              {item?.current_job} → {item?.target_role}
+              {item?.current_job} → {item?.desired_role}
             </strong>
   
             <span>
@@ -1518,15 +1521,11 @@ return (
   
   <div>
 
-            <button onClick={() => setResult(item)}>
+            <button onClick={() => getReport(item.id)}>
               View
             </button>
 
-            <button
-  onClick={() => downloadSpecificReport(item)}
->
-  Download PDF
-</button>
+           
   </div>
           </div>
   

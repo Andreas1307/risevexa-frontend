@@ -638,6 +638,7 @@ body {
 .report-container h4 {
   margin: 0;
   letter-spacing: -0.03em;
+  color: #222;
 }
 
 .hero-intro {
@@ -1454,7 +1455,7 @@ body {
     0 4px 18px rgba(0,0,0,0.30);
 }
 
-.report-card::before {
+.report-card.recruiter-card::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -1467,7 +1468,7 @@ body {
   pointer-events: none;
 }
 
-.report-card::after {
+.report-card.recruiter-card::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -3792,15 +3793,15 @@ body {
   position: absolute;
   top: 13px;
   right: 13px;
-  width: 43px;
-  height: 43px;
+  width: 44.5px;
+  height: 44.5px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   font-size: 26px;
   color: #f2f2f2;
-  background: #ffb4b4;
+  background: #5B7FFF;
   cursor: pointer;
   transition: .25s ease;
   scale: 1.02;

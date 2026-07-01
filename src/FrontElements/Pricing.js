@@ -16,13 +16,12 @@ const Pricing = () => {
       <p class="pricing-eyebrow">YOU'RE UNDERPAID</p>
 
       <h2 class="pricing-title">
-        You're Not Stuck.
-        You're Just Positioned Wrong.
+      Recruiters don't reject experience.
+      They reject positioning.
       </h2>
 
       <p class="pricing-desc">
-        We show you the exact shift that turns your current experience
-        into a higher-paying role — with zero guesswork.
+      Your report shows exactly how your CV is being interpreted—and how to change it.
       </p>
 
       <div class="pricing-proof">
@@ -60,6 +59,19 @@ const Pricing = () => {
 
       <div class="price-block">
         <div class="price offer"><div className="price-offer">€14.99</div> <span>€0.00</span></div>
+      
+      
+        <div className="price-block-text">
+  <div className="price-item">✓ Full Income Upgrade Report</div>
+  <div className="price-item">✓ Recruiter Positioning Analysis</div>
+  <div className="price-item">✓ Best Next Career Recommendation</div>
+  <div className="price-item">✓ Personalised CV Rewrite Suggestions</div>
+  <div className="price-item">✓ Salary Negotiation Script</div>
+  <div className="price-item">✓ 90-Day Career Transition Plan</div>
+  <div className="price-item">✓ Lifetime Access</div>
+</div>
+      
+      
       <Link to={"/sign-up"}><button class="pricing-cta">Unlock My Income Upgrade</button></Link>
         <p class="pricing-note">
         One-time payment. Lifetime upside.

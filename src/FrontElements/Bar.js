@@ -5,7 +5,7 @@ import "../FrontStyling/style.css"
 const Bar = () => {
     return (
         <section class="announcement-bar">
-        <p>Trusted by professionals moving from underpaid roles into higher-income careers</p>
+        <p>Used to identify career progression paths across operations, retail, logistics, and technical roles</p>
       </section>
     )
 }

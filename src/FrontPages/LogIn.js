@@ -42,7 +42,8 @@ const LogIn = () => {
 
 
 
-    const signIn = async () => {
+    const signIn = async (e) => {
+      if (e) e.preventDefault();
         try {
             if(!email || !password) {
                 alert("You have not filled in all details")
@@ -100,7 +101,7 @@ const LogIn = () => {
         <h2>Welcome back</h2>
         <p>Sign in to continue your career upgrade</p>
 
-        <form>
+        <form onSubmit={signIn}>
           <input type="email"
            placeholder="Email address"
            onChange={(e) => setEmail(e.target.value)}
@@ -123,7 +124,7 @@ const LogIn = () => {
 
 
 
-          <button type="submit" onClick={() => signIn()}>Sign In</button>
+          <button type="submit">Sign In</button>
         </form>
 
         <div class="login-meta two">
