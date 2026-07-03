@@ -62,38 +62,50 @@ const PricingPage = () => {
 
   <div class="detail">
     <div class="icon">01</div>
-    <h3>Income Gap Analysis</h3>
-    <p>We calculate exactly how much you are underpaid based on your role, experience, and market demand.</p>
+    <h3>How recruiters classify your CV</h3>
+    <p>Discover how recruiters actually interpret your CV in the first few seconds.</p>
   </div>
 
   <div class="detail">
     <div class="icon">02</div>
-    <h3>Best Next Role</h3>
-    <p>The highest-paying realistic move based on your actual background — not generic suggestions.</p>
+    <h3>Where your CV is undervaluing you</h3>
+    <p>See how your current salary compares to realistic market opportunities.</p>
   </div>
 
   <div class="detail">
     <div class="icon">03</div>
-    <h3>Transition Plan</h3>
-    <p>Step-by-step weekly actions that move you into a better role as fast as possible.</p>
+    <h3>Professional CV Rewrite</h3>
+    <p>Transform weak bullet points into achievement-focused statements.</p>
   </div>
 
   <div class="detail">
     <div class="icon">04</div>
-    <h3>CV Repositioning</h3>
-    <p>Your experience rewritten so you qualify for higher-paying roles instantly.</p>
+    <h3>Interview Questions</h3>
+    <p>Prepare for interviews with personalised questions based on your target role.</p>
   </div>
 
   <div class="detail">
     <div class="icon">05</div>
-    <h3>Interview Strategy</h3>
-    <p>How to position yourself so employers see you as already qualified.</p>
+    <h3>Negotiation Script</h3>
+    <p>Know exactly what to say when negotiating salary or promotions.</p>
   </div>
 
   <div class="detail highlight4">
     <div class="icon">06</div>
-    <h3>Application System</h3>
-    <p>Exactly where to apply, how to apply, and how to stand out every time.</p>
+    <h3>Promotion likelihood vs current role</h3>
+    <p>Understand what's stopping you reaching the next level in your career.</p>
+  </div>
+
+  <div class="detail">
+    <div class="icon">07</div>
+    <h3>Missing keywords blocking interviews</h3>
+    <p>Identify missing keywords and improvements before recruiters ever see your CV.</p>
+  </div>
+
+  <div class="detail">
+    <div class="icon">05</div>
+    <h3>90-Day Career Plan</h3>
+    <p>A personalised roadmap showing exactly what to do over the next three months.</p>
   </div>
 
 </div>
