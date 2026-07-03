@@ -1402,7 +1402,7 @@ return (
   
         <div className="vx-report-box1">
           <span>Current Salary</span>
-          <h3>€{latestRep?.current_salary}</h3>
+          <h3>{latestRep?.current_salary}</h3>
         </div>
   
         <div className="vx-report-box1">

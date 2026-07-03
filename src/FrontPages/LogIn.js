@@ -133,7 +133,7 @@ const LogIn = () => {
 
         <div class="login-meta">
           <span>Forgot password?</span>
-          <span>Create account</span>
+          <span><Link to={"/sign-up"}>Create account</Link></span>
         </div>
 
         <GoogleLogin

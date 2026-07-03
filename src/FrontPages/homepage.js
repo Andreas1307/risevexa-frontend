@@ -186,7 +186,7 @@ const Homepage = () => {
 
           */}
 
-          <section class="how-it-works-section2">
+  <section class="how-it-works-section2">
             <div class="section-header3">
               <p class="eyebrow">THE SYSTEM</p>
               <h2>From Stuck → Hired Better</h2>
@@ -236,6 +236,104 @@ const Homepage = () => {
               </div>
             </div>
           </section>
+          
+
+<section class="report-preview">
+
+  <div className="wrapp-video">
+    <div className="preview-left">
+
+    
+
+        <h2>
+            A complete Career Positioning Report
+        </h2>
+
+        <p>
+Every report is built from your CV, revealing your market value, best-fit roles, salary potential, and the fastest path to earning more.
+</p>
+
+       
+
+    </div>
+
+    <div class="preview-right">
+
+        <div class="laptop">
+
+            <video className="report-video"
+                autoPlay
+                muted
+                loop
+                playsinline>
+
+                <source
+                   src={`${process.env.PUBLIC_URL}/img/video.mp4`}
+                    type="video/mp4">
+                      </source>
+
+            </video>
+
+        </div>
+
+        <div class="floating-card">
+
+            <div class="number">
+                13+
+            </div>
+
+            <div class="label">
+                Pages of personalised analysis
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="feature-list">
+
+<div class="feature">
+    ✓ Recruiter Snapshot
+</div>
+
+<div class="feature">
+    ✓ Salary Gap Analysis
+</div>
+
+<div class="feature">
+    ✓ Career Matches
+</div>
+
+<div class="feature">
+    ✓ ATS Review
+</div>
+
+<div class="feature">
+    ✓ CV Rewrite
+</div>
+
+<div class="feature">
+    ✓ Negotiation Script
+</div>
+
+<div class="feature">
+    ✓ Interview Preparation
+</div>
+
+<div class="feature">
+    ✓ 90-Day Career Plan
+</div>
+
+</div>
+</section>
+
+
+
+
+
+
+        
 
           <section class="social-proof-section">
             <div class="section-header3">
