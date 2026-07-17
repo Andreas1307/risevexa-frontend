@@ -625,7 +625,7 @@ useEffect(() => {
       className="vx-unlock-btn"
       onClick={handleCheckout}
     >
-      🔒 Unlock Full Report – <span className="vx-pricee vx-offer">€14.99</span> <span className="vx-new-offer">€0.00</span>
+      🔒 Unlock Full Report – <span className="vx-pricee">€14.99</span> <span className="vx-new-offer">€0.00</span>
     </button>
 
   </div>
