@@ -5273,10 +5273,10 @@ body {
       margin-left: 10px;
     }
     .vx-unlock-btn .vx-new-offer{
-      display: none;
+      display: block;
     }
     .vx-unlock-btn.offerrr .vx-new-offer{
-      display: block;
+      display: none;
     }
 
 

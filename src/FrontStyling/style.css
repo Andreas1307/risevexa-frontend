@@ -1105,12 +1105,11 @@
   .price span {
     display: none;
   }
-  /* OFFER                                               OFFFFFFFFERRRRRRRRRR*/    /*                           
+/*                                              OFFFFFFFFERRRRRRRRRR*/                            
   .price.offer .price-offer {
     font-size: 38px;
     text-decoration: line-through;
   }
-    /*
   .price.offer span {
     display: none;
     font-size: 70px;
