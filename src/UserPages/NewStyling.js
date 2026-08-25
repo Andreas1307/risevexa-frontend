@@ -23,7 +23,11 @@ const NewAnalysis = () => {
   const [loading, setLoading] = useState(false);
   const [unlocked, setUnlocked] = useState(false);
 
-  const [step, setStep] = useState("form"); 
+  const [step, setStep] = useState(
+    new URLSearchParams(window.location.search).get("session_id")
+      ? "loading"
+      : "form"
+  );
   const [insertedId, setInsertedId] = useState(null);
   const [reportId, setReportId] = useState(null);
   const [error, setError] = useState(null);
@@ -55,36 +59,48 @@ const NewAnalysis = () => {
   const hasGeneratedReport = useRef(false);
 
   useEffect(() => {
-      const newId = searchParams.get("data_id");
-      const sessionId = searchParams.get("session_id");
-  
-      if (!sessionId) return;
-  
-      let attempts = 0;
-  
-      const interval = setInterval(async () => {
-          attempts++;
-  
-          // If a request is already running or complete, stop immediately
-          if (hasGeneratedReport.current) {
-              clearInterval(interval);
-              return;
-          }
-  
-          const success = await verifyPayment(sessionId, newId);
-  
-          if (success) {
-              clearInterval(interval);
-          }
-  
-          if (attempts >= 10) {
-              clearInterval(interval);
-              toast.error("Payment verification timed out");
-          }
-      }, 3000);
-  
-      return () => clearInterval(interval);
-  }, []);
+    const newId = searchParams.get("data_id");
+    const sessionId = searchParams.get("session_id");
+
+    if (!sessionId) return;
+
+    let attempts = 0;
+
+    const checkPayment = async () => {
+        attempts++;
+
+        if (hasGeneratedReport.current) {
+            return true;
+        }
+
+        const success = await verifyPayment(sessionId, newId);
+
+        if (success) {
+            return true;
+        }
+
+        if (attempts >= 10) {
+            toast.error("Payment verification timed out");
+            return true;
+        }
+
+        return false;
+    };
+
+    // 🔥 Check immediately instead of waiting 3 seconds
+    checkPayment();
+
+    // Keep retrying every 3 seconds if needed
+    const interval = setInterval(async () => {
+        const finished = await checkPayment();
+
+        if (finished) {
+            clearInterval(interval);
+        }
+    }, 3000);
+
+    return () => clearInterval(interval);
+}, []);
 
   const handleCheckout = async () => {
     try {
