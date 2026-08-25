@@ -5266,7 +5266,7 @@ body {
       transition:0.8s ease;
     }
     .vx-pricee {
-      display: none;
+      display: block;
     }
     .vx-unlock-btn .vx-pricee.vx-offer {
       font-size: 16.5px;

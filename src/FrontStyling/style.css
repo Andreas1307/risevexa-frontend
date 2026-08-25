@@ -1105,7 +1105,7 @@
   .price span {
     display: none;
   }
-/*                                              OFFFFFFFFERRRRRRRRRR*/                            
+/*                                              OFFFFFFFFERRRRRRRRRR*/ /*                           
   .price.offer .price-offer {
     font-size: 38px;
     text-decoration: line-through;
@@ -1114,7 +1114,7 @@
     display: none;
     font-size: 70px;
   }
-
+/*
   
   /* CTA */
   
